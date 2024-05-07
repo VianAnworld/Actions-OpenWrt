@@ -1,13 +1,3 @@
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-iwrt
-# Description: Build iwrt using GitHub Actions
-#
-
 name: Build Firmware
 
 on:
@@ -21,7 +11,7 @@ on:
 #    - cron: 0 14 * * *
 
 env:
-  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
+  REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ax6000.config
