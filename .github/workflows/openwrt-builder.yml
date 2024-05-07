@@ -1,4 +1,4 @@
-name: Build Firmware
+name: OpenWrt Builder
 
 on:
   repository_dispatch:
