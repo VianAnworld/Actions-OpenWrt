@@ -19,6 +19,9 @@
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
+##  修改默认密码
+sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+
 ##  修改主机名
 sed -i "s/ImmortalWrt/OpenWrt/g" ./package/base-files/files/bin/config_generate
 
