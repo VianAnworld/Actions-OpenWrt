@@ -37,7 +37,6 @@ git clone -b master https://github.com/vernesong/OpenClash.git package/feeds/luc
 
 ##  科学 mate core------------------
 mkdir -p files/etc/openclash/core
-CORE_VERSION="$(curl -fsSL https://raw.githubusercontent.com/vernesong/OpenClash/core/master/core_version | grep '^[0-9].*')"
 CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
 wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
 chmod +x files/etc/openclash/core/clash*
