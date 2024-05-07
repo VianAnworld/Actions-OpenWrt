@@ -27,17 +27,10 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: Checkout
+    - name: 检查项目分支
       uses: actions/checkout@v4.1.1
 
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
-    - name: Initialization environment
+    - name: 初始化编译环境
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
@@ -48,12 +41,12 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
 
-    - name: Clone source code
+    - name: 下载固件源码
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH ${GITHUB_WORKSPACE}/iwrt
 
-    - name: Load custom feeds
+    - name: 加载diy配置
       run: |
         [ -e $FEEDS_CONF ] && cp $FEEDS_CONF ${GITHUB_WORKSPACE}/iwrt/feeds.conf.default
         cp ${GITHUB_WORKSPACE}/$DIY_P1_SH ${GITHUB_WORKSPACE}/$DIY_P2_SH ${GITHUB_WORKSPACE}/iwrt/
@@ -65,7 +58,7 @@ jobs:
         ./scripts/feeds update -i
         ./scripts/feeds install -a
 
-    - name: Download package
+    - name: 下载安装包
       id: package
       run: |
         cd ${GITHUB_WORKSPACE}/iwrt
@@ -73,7 +66,7 @@ jobs:
         make defconfig
         make download -j8
 
-    - name: Compile the firmware
+    - name: 编译固件
       id: compile
       run: |
         cd ${GITHUB_WORKSPACE}/iwrt
@@ -83,17 +76,17 @@ jobs:
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M%S")" >> $GITHUB_ENV
 
-    - name: Check space usage
+    - name: 检查磁盘使用情况
       if: (!cancelled())
       run: df -hT
 
-    - name: Zip bin directory
+    - name: 压缩bin目录
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cd ${GITHUB_WORKSPACE}/iwrt/bin
         zip -r ${GITHUB_WORKSPACE}/iwrt/iwrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}.zip *
 
-    - name: Organize files
+    - name: 整理文件并重命名
       id: organize
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
@@ -103,14 +96,14 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> "$GITHUB_OUTPUT"
 
-    - name: Upload firmware directory
+    - name: 上传固件到github
       uses: actions/upload-artifact@v4.3.3
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: iwrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-    - name: Generate release tag
+    - name: 生成release标签
       id: tag
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
@@ -118,7 +111,7 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d-%H%M%S")" >> "$GITHUB_OUTPUT"
         echo "status=success" >> "$GITHUB_OUTPUT"
 
-    - name: Upload firmware to release
+    - name: 发布至release
       uses: ncipollo/release-action@v1.14.0
       if: steps.tag.outputs.status == 'success' && !cancelled()
       with:
@@ -126,13 +119,13 @@ jobs:
         body: ${{ steps.tag.outputs.release_tag }}
         artifacts: ${{ env.FIRMWARE }}/*
 
-    - name: Delete workflow runs
+    - name: 删除工作流程运行
       uses: Mattraks/delete-workflow-runs@v2.0.6
       with:
         retain_days: 0
         keep_minimum_runs: 1
 
-    - name: Remove old Releases
+    - name: 删除旧版本
       uses: dev-drprasad/delete-older-releases@v0.3.3
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
