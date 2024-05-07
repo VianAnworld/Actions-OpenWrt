@@ -26,8 +26,8 @@ sed -i "s/ImmortalWrt/OpenWrt/g" ./package/base-files/files/bin/config_generate
 sed -i 's/192.168.6.1/192.168.1.1/g' package/base-files/files/bin/config_generate
 
 ##-----------------修改wifi名------------------
-sed -i 's/ImmortalWrt-2.4G/SmartHome/g' package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b0.dat
-sed -i 's/ImmortalWrt-5G/online/g' package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b0.dat
+sed -i 's/ImmortalWrt-2.4G/SmartHome/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 ##-----------------添加自定义插件------------------
 git clone -b master https://github.com/vernesong/OpenClash.git package/feeds/luci-app-openclash
