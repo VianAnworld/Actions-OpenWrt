@@ -35,7 +35,7 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 ##  添加自定义插件
 git clone -b master https://github.com/vernesong/OpenClash.git package/feeds/luci-app-openclash
 
-##-----------------Add OpenClash dev core------------------
+##  科学 mate core------------------
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/dev/dev/clash-linux-arm64.tar.gz -o /tmp/clash-linux-arm64.tar.gz
 tar zxvf /tmp/clash-linux-arm64.tar.gz -C /tmp >/dev/null 2>&1
 chmod +x /tmp/clash >/dev/null 2>&1
