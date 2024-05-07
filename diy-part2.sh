@@ -36,16 +36,8 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 git clone -b master https://github.com/vernesong/OpenClash.git package/feeds/luci-app-openclash
 
 ##  科学 mate core------------------
-curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/blob/core/master/meta/clash-linux-arm64.tar.gz -o /tmp/clash-linux-arm64.tar.gz
-tar zxvf /tmp/clash-linux-arm64.tar.gz -C /tmp >/dev/null 2>&1
-chmod +x /tmp/clash >/dev/null 2>&1
-mkdir -p feeds/luci/applications/luci-app-openclash/root/etc/openclash/core
-mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash >/dev/null 2>&1
-rm -rf /tmp/clash-linux-arm64.tar.gz >/dev/null 2>&1
-
-
 mkdir -p files/etc/openclash/core
 CORE_VERSION="$(curl -fsSL https://raw.githubusercontent.com/vernesong/OpenClash/core/master/core_version | grep '^[0-9].*')"
-CLASH_META_URL="https://github.com/vernesong/OpenClash/blob/core/master/meta/clash-linux-arm64.tar.gz"
+CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
 wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
 chmod +x files/etc/openclash/core/clash*
