@@ -13,4 +13,8 @@ git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclas
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 $GITHUB_WORKSPACE/preset-clash-core.sh
+echo "
+# openclash
 CONFIG_PACKAGE_luci-app-openclash=y
+
+" >> ax6000.config
