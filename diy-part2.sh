@@ -10,10 +10,3 @@ sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtw
 
 # 添加openclash
 git clone https://github.com/vernesong/OpenClash/tree/master package/luci-app-openclash
-# 加入OpenClash核心
-chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
-$GITHUB_WORKSPACE/preset-clash-core.sh
-echo "
-CONFIG_PACKAGE_luci-app-openclash=y
-
-" >> ax6000.config
