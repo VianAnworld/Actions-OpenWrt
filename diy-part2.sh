@@ -13,8 +13,8 @@ git clone https://github.com/vernesong/OpenClash/tree/master package/luci-app-op
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 $GITHUB_WORKSPACE/preset-clash-core.sh
-echo "
+#echo "
 # openclash
-CONFIG_PACKAGE_luci-app-openclash=y
+#CONFIG_PACKAGE_luci-app-openclash=y
 
-" >> ax6000.config
+#" >> ax6000.config
