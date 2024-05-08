@@ -9,7 +9,7 @@ sed -i 's/ImmortalWrt-2.4G/SmartHome/g' package/mtk/applications/mtwifi-cfg/file
 sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 # openclash
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+git clone https://github.com/vernesong/OpenClash/tree/master package/luci-app-openclash
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 $GITHUB_WORKSPACE/preset-clash-core.sh
