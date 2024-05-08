@@ -46,17 +46,6 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH ${GITHUB_WORKSPACE}/iwrt
 
-   - name: 添加额外插件
-      run: |
-        cd openwrt/package
-        git clone https://github.com/vernesong/OpenClash
-        mv OpenClash/luci-app-openclash/ .
-        rm -rf OpenClash/
-        cd base-files/files
-        mkdir -p etc/openclash/core && cd etc/openclash/core
-        curl -L https://github.com/vernesong/OpenClash/blob/core/master/meta/clash-linux-arm64.tar.gz | tar zxf -
-        chmod +x clash
-
     - name: 加载diy配置
       run: |
         [ -e $FEEDS_CONF ] && cp $FEEDS_CONF ${GITHUB_WORKSPACE}/iwrt/feeds.conf.default
