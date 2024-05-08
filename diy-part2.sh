@@ -10,4 +10,3 @@ sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtw
 
 # 添加openclash
 #git clone https://github.com/vernesong/OpenClash package/luci-app-openclash
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
