@@ -76,9 +76,6 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    - name: 二次安装DIY_P1防失败
-      run: cd openwrt && ./scripts/feeds install -a
-
     - name: 下载软件包
       id: package
       run: |
