@@ -1,5 +1,3 @@
 #!/bin/bash
 
-# openclash
-git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-make menuconfig
+sed -i '$a src-git openwrt_kiddin9 https://github.com/kiddin9/openwrt-packages' feeds.conf.default
