@@ -6,4 +6,4 @@ sed -i 's/ImmortalWrt-2.4G/SmartHome/g' package/mtk/applications/mtwifi-cfg/file
 sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 # openclash 科学上网
-git clone https://github.com/kenzok8/openwrt-packages.git package/luci-app-openclash
+svn co https://github.com/kenzok8/openwrt-packages package/luci-app-openclash
