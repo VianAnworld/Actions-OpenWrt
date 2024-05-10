@@ -1,2 +1,2 @@
 #!/bin/bash
-svn co https://github.com/vernesong/OpenClash/tree/master/luci-app-openclash package/luci-app-openclash
+svn co https://github.com/vernesong/OpenClash.git -b master package/luci-app-openclash
