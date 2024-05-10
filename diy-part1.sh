@@ -1,2 +1,4 @@
 #!/bin/bash
-svn co https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
+# openclash
+git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
