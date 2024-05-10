@@ -9,6 +9,7 @@ sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtw
 
 ## openclash
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+rm -rf package/luci-app-openclash/README* package/luci-app-openclash
 
 ## Add OpenClash dev core
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
