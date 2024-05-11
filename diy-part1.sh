@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# openclash
-git clone https://github.com/vernesong/OpenClash.git --depth=1
+# Add a feed source
+echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
