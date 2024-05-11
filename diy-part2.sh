@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # 主机名
 sed -i "s/ImmortalWrt/OpenWrt/g" ./package/base-files/files/bin/config_generate
 # Lan IP
