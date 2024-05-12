@@ -10,6 +10,7 @@ sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtw
 # 删除重复包
 rm -rf feeds/luci/applications/luci-app-openclash
 #Add openclash
+git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 # OpenClash dev core
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
