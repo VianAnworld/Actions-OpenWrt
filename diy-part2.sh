@@ -12,6 +12,7 @@ sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtw
 
 #删除bootstrap主题
 rm -rf feeds/themes/luci-theme-bootstrap-mod
+rm -rf feeds/themes/luci-theme-bootstrap
 
 # 删除重复包
 rm -rf feeds/luci/applications/luci-app-openclash
