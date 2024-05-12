@@ -10,6 +10,9 @@ sed -i 's/192.168.6.1/192.168.1.1/g' package/base-files/files/bin/config_generat
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
+#删除bootstrap主题
+rm -rf feeds/themes/luci-theme-bootstrap-mod
+
 # 删除重复包
 rm -rf feeds/luci/applications/luci-app-openclash
 
