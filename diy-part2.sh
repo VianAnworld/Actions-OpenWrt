@@ -13,7 +13,7 @@ rm -rf luci/themes/luci-theme-bootstrap
 # 删除重复包
 #rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf luci/applications/luci-app-openclash
-git clone -b master https://github.com/vernesong/OpenClash.git package/applications/luci-app-openclash
+git clone -b master https://github.com/vernesong/OpenClash.git luci/applications/luci-app-openclash
 
 # OpenClash dev core
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
