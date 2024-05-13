@@ -6,7 +6,7 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' ./package/base-files/files/etc/shadow
 
 # 删除重复包
-rm -rf ./feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf luci/applications/luci-app-openclash
 git clone -b master https://github.com/vernesong/OpenClash.git ./package/luci-app-openclash
 # OpenClash dev core
