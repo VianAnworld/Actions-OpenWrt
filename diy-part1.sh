@@ -1,3 +1,4 @@
 #!/bin/bash
-#Add openclash
-git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
+# Add a feed source
+echo 'src-git OpenClash https://github.com/vernesong/OpenClash' >>feeds.conf.default
