@@ -13,6 +13,8 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 
 # 删除重复包
 rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf luci/applications/luci-app-openclash
+git clone -b master https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
 # OpenClash dev core
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
