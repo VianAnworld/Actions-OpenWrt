@@ -7,14 +7,6 @@ sed -i 's/ImmortalWrt-2.4G/SmartHome/g' package/mtk/applications/mtwifi-cfg/file
 sed -i 's/ImmortalWrt-5G/online/g' package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' package/base-files/files/etc/shadow
 
-#删除bootstrap主题
-rm -rf luci/themes/luci-theme-bootstrap-mod
-rm -rf luci/themes/luci-theme-bootstrap
-# 删除重复包
-#rm -rf feeds/luci/applications/luci-app-openclash
-rm -rf luci/applications/luci-app-openclash
-git clone -b master https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-
 # OpenClash dev core
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
