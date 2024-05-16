@@ -10,6 +10,7 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 # Modify root
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' ./package/base-files/files/etc/shadow
 
+# 替换源中openclash
 rm -rf luci/applications/luci-app-openclash
 git clone https://github.com/vernesong/OpenClash.git luci/applications/luci-app-openclash
 
