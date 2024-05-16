@@ -13,7 +13,7 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 # 替换源中openclash
 rm -rf luci/applications/luci-app-openclash
 # Clone 项目
-mkdir luci/applications/luci-app-openclash
+#mkdir luci/applications/luci-app-openclash
 cd luci/applications/luci-app-openclash
 git init
 git remote add -f origin https://github.com/vernesong/OpenClash.git
