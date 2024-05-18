@@ -9,10 +9,6 @@ sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/fi
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 # Modify root
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' ./package/base-files/files/etc/shadow
-
-# 替换源中openclash
-#rm -rf feeds/luci/applications/luci-app-openclash
-#git clone -b master --filter=blob:none https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 # 替换源中ssrplus
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/packages/net/xray-core
@@ -22,7 +18,9 @@ rm -rf feeds/packages/net/shadowsocks-rust
 rm -rf feeds/packages/net/shadowsocksr-libev
 rm -rf feeds/packages/net/MosDNS
 git clone -b master --filter=blob:none https://github.com/fw876/helloworld.git package/helloworld
-
+# 替换源中openclash
+#rm -rf feeds/luci/applications/luci-app-openclash
+#git clone -b master --filter=blob:none https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 # OpenClash dev core
 #curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 #tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
