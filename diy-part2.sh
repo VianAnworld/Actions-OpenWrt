@@ -16,7 +16,10 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 # 替换源中ssrplus
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/packages/net/xray-core
+rm -rf feeds/packages/net/xray-plugin
 rm -rf feeds/packages/net/chinadns-ng
+rm -rf feeds/packages/net/shadowsocks-rust
+rm -rf feeds/packages/net/shadowsocksr-libev
 git clone -b master --filter=blob:none https://github.com/fw876/helloworld.git package/helloworld
 
 # OpenClash dev core
