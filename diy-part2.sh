@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Modify hostname
 sed -i "s/ImmortalWrt/OpenWrt/g" ./package/base-files/files/bin/config_generate
 # Modify default IP
