@@ -20,6 +20,7 @@ rm -rf feeds/packages/net/xray-plugin
 rm -rf feeds/packages/net/chinadns-ng
 rm -rf feeds/packages/net/shadowsocks-rust
 rm -rf feeds/packages/net/shadowsocksr-libev
+rm -rf feeds/packages/net/MosDNS
 git clone -b master --filter=blob:none https://github.com/fw876/helloworld.git package/helloworld
 
 # OpenClash dev core
