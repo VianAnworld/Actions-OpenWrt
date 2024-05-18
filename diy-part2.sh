@@ -13,6 +13,11 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 # 替换源中openclash
 #rm -rf feeds/luci/applications/luci-app-openclash
 #git clone -b master --filter=blob:none https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+# 替换源中ssrplus
+rm -rf feeds/luci/applications/luci-app-ssr-plus
+rm -rf feeds/packages/net/xray-core
+rm -rf feeds/packages/net/chinadns-ng
+git clone -b master --filter=blob:none https://github.com/fw876/helloworld.git package/helloworld
 
 # OpenClash dev core
 #curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
