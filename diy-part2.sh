@@ -12,6 +12,7 @@ rm -rf package/helloworld
 rm -rf luci/helloworld
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-vssr
+rm -rf feeds/luci/applications/luci-app-shadowsocks-libev
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/dns2socks
 rm -rf feeds/packages/net/dns2tcp
