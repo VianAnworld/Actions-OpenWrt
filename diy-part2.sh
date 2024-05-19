@@ -8,3 +8,12 @@ sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/fi
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 # Modify root
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' ./package/base-files/files/etc/shadow
+rm -rf feeds/luci/applications/luci-app-ssr-plus
+rm -rf feeds/packages/net/shadowsocksr-libev
+rm -rf feeds/packages/net/shadowsocks-rust
+rm -rf feeds/packages/net/shadowsocks-libev
+rm -rf feeds/packages/net/chinadns-ng
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/net/simple-obfs
+rm -rf feeds/packages/net/xray-core
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
