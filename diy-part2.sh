@@ -11,6 +11,6 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/v2ray-geodata
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/mosdns
+git clone --depth=1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 #git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
