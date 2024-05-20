@@ -10,8 +10,6 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' ./package/base-files/files/etc/shadow
 # mosdns
 rm -rf feeds/packages/net/mosdns
-rm -rf feeds/packages/net/dns2socks
-rm -rf feeds/packages/net/dns2tcp
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
