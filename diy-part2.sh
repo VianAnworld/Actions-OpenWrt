@@ -13,5 +13,7 @@ rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/dns2socks
 rm -rf feeds/packages/net/dns2tcp
 rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
