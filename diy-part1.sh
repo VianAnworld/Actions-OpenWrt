@@ -1,2 +1,2 @@
 #!/bin/bash
-src-git -b v5 luci-app-mosdns https://github.com/sbwml/luci-app-mosdns.git feeds.conf.default
+sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
