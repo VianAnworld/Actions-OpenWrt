@@ -13,3 +13,5 @@ rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/dns2socks
 rm -rf feeds/packages/net/dns2tcp
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+make menuconfig # choose LUCI -> Applications -> luci-app-mosdns
+make package/mosdns/luci-app-mosdns/compile V=s
