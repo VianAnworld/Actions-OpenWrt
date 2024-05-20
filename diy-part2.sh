@@ -9,6 +9,8 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 # Modify root
 sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:99999:7:::/g' ./package/base-files/files/etc/shadow
 rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/v2ray-geodata
+git clone --depth=1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/mosdns
