@@ -22,12 +22,3 @@ sed -i "s/${orig_version}/R${date_version} by Haiibo/g" package/lean/default-set
 
 # TTYD 免登录
 sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
-
-# MosDNS
-rm -rf feeds/packages/net/mosdns
-git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
-
-
-
-./scripts/feeds update -a
-./scripts/feeds install -a
