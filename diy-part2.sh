@@ -1,6 +1,6 @@
 #!/bin/bash
 # 修改主机名
-sed -i "s/ImmortalWrt/OpenWrt/g" ./package/base-files/files/bin/config_generate
+sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 # 修正CPU频率
 sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/emortal/autocore/files/generic/cpuinfo
 # 固件版本名称自定义
