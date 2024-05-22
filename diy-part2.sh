@@ -4,7 +4,7 @@ sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" package/base-files/files/
 # 修正CPU频率
 sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/emortal/autocore/files/generic/cpuinfo
 # 固件版本名称自定义
-sed -i "s/DISTRIB_DESCRIPTION='%D %V %C'/DISTRIB_DESCRIPTION='ImmortalWrt-21.02 By padavanonly $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt-21.02 By padavanonly $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_release
 # 修改登录IP
 sed -i 's/192.168.6.1/192.168.1.1/g' ./package/base-files/files/bin/config_generate
 # 修改password
