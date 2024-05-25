@@ -14,7 +14,9 @@ sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/fi
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 #添加主题
-git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
+#git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 #更换默认主题为opentopd，并删除bootstrap主题
-sed -i 's#luci-theme-bootstrap#luci-theme-opentopd#g' feeds/luci/collections/luci/Makefile
-sed -i 's/bootstrap/opentopd/g' feeds/luci/modules/luci-base/root/etc/config/luci
+#sed -i 's#luci-theme-bootstrap#luci-theme-opentopd#g' feeds/luci/collections/luci/Makefile
+#sed -i 's/bootstrap/opentopd/g' feeds/luci/modules/luci-base/root/etc/config/luci
+# 更换主题背景
+wget -O ./package/lean/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://github.com/jiawm/My-OpenWrt-by-Lean/raw/main/BackGround/2.jpg
