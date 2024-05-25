@@ -41,4 +41,5 @@ rm -rf feeds/packages/net/v2ray-plugin
 rm -rf feeds/packages/net/v2raya
 rm -rf feeds/packages/net/xray-core
 rm -rf feeds/packages/net/xray-plugin
+rm -rf feeds/packages/net/mosdns
 git clone --depth=1 https://github.com/fw876/helloworld.git feeds/package/helloworld
