@@ -12,7 +12,6 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 # 修改SSID 
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i 's/^set wireless.default_${dev}.encryption=none$/&\nset wireless.default_${dev}.key=@15859585276/' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/encryption=none/encryption=sae-mixed/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
-sed -i '/^set wireless.default_${dev}.encryption=none$/a\set wireless.default_${dev}.key=@15859585276' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-sed -i 's/^set wireless.default_${dev}.encryption=none$/&\nset wireless.default_${dev}.key=@15859585276/' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
