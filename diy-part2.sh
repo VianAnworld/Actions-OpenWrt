@@ -23,3 +23,6 @@ git clone -b main https://github.com/rufengsuixing/luci-app-onliner.git feeds/pa
 # 更新 dns2tcp
 rm -rf feeds/packages/net/dns2tcp
 git clone -b master https://github.com/zfl9/dns2tcp.git feeds/packages/net/dns2tcp
+# 更新 chinadns-ng
+rm -rf feeds/packages/net/chinadns-ng
+git clone -b master https://github.com/zfl9/chinadns-ng.git feeds/packages/net/chinadns-ng
