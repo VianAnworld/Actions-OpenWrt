@@ -22,4 +22,4 @@ rm -rf feeds/packages/net/xray-core
 git clone -b main https://github.com/rufengsuixing/luci-app-onliner.git feeds/packages/net/xray-core
 # 更新 dns2tcp
 rm -rf feeds/packages/net/dns2tcp
-git clone https://github.com/zfl9/dns2tcp.git feeds/packages/net/dns2tcp
+git clone -b master https://github.com/zfl9/dns2tcp.git feeds/packages/net/dns2tcp
