@@ -18,6 +18,3 @@ git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-ope
 #更换默认主题为opentopd，并删除bootstrap主题
 sed -i 's#luci-theme-bootstrap#luci-theme-opentopd#g' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/opentopd/g' feeds/luci/modules/luci-base/root/etc/config/luci
-
-# 修改插件名字
-sed -i 's/"ShadowSocksR Plus+"/"科学上网"/g' luci/applications/luci-app-ssr-plus/po/zh_Hans/ssr-plus.po
