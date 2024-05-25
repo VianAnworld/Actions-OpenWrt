@@ -16,7 +16,3 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
-# 更新Xray core
-wget -O feeds/packages/net/xray-core/Makefile https://raw.githubusercontent.com/immortalwrt/packages/master/net/xray-core/Makefile
-# 更新dns2tcp
-wget -O feeds/packages/net/xray-core/Makefile https://raw.githubusercontent.com/fw876/helloworld/master/dns2tcp/Makefile
