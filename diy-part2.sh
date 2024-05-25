@@ -20,4 +20,4 @@ sed -i 's#luci-theme-bootstrap#luci-theme-opentopd#g' feeds/luci/collections/luc
 sed -i 's/bootstrap/opentopd/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 # 修改插件名字
-sed -i 's/"ShadowSocksR Plus+"/"科学上网"/g' package/lean/luci-app-flowoffload/po/zh-cn/ssr-plus.po
+sed -i 's/"ShadowSocksR Plus+"/"科学上网"/g' luci/applications/luci-app-ssr-plus/po/zh_Hans/ssr-plus.po
