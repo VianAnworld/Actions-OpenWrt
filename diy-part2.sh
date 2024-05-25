@@ -15,4 +15,4 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 
 sed -i 's/encryption=none/encryption=sae-mixed/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
-sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i '/					set wireless.default_radio${devidx}.key=@15859585276' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
