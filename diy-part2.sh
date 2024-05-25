@@ -15,3 +15,5 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 #更换默认主题为opentopd，并删除bootstrap主题
 sed -i 's#luci-theme-bootstrap#luci-theme-opentopd#g' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/opentopd/g' feeds/luci/modules/luci-base/root/etc/config/luci
+#删除argon主题
+rm -rf ./package/lean/luci-theme-argon
