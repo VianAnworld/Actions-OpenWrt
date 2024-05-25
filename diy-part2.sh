@@ -12,10 +12,11 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 # 修改SSID 
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-# 替换默认主题为argon
+# 替换默认主题为argon 并删除bootstrap
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
+
 # 更新 Xray-core
 rm -rf feeds/packages/net/xray-core
 git clone -b main https://github.com/rufengsuixing/luci-app-onliner.git feeds/packages/net/xray-core
