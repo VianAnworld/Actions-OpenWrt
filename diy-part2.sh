@@ -18,6 +18,14 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 
 # 更新 ssrplus
+rm -rf feeds/luci/applications/luci-app-microsocks
+rm -rf feeds/luci/applications/luci-app-naiveproxy
+rm -rf feeds/feeds/luci/luci-app-passwall
+rm -rf feeds/luci/luci-app-ssr-libev-server
+rm -rf feeds/luci/luci-app-trojan-server
+rm -rf feeds/luci/luci-app-v2ray-server
+rm -rf feeds/luci/luci-app-v2raya
+rm -rf feeds/luci/luci-app-vssr
 rm -rf feeds/packages/net/chinadns-ng
 rm -rf feeds/packages/net/dns2socks
 rm -rf feeds/packages/net/dns2tcp
