@@ -4,8 +4,8 @@ sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" package/base-files/files/
 # 修正CPU频率
 sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/emortal/autocore/files/generic/cpuinfo
 # 固件版本名称自定义
-sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt-21.01")'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION=' $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt-21.01'/g" package/base-files/files/etc/openwrt_releas
+sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION=' $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_releas
 # 内存释放阈值
 sed -i '/exit 0/i\echo "vm.min_free_kbytes=65536" > \/etc\/sysctl.d\/11-nf-conntrack-max.conf' package/emortal/default-settings/files/99-default-settings
 sed -i '/exit 0/i\echo "net.netfilter.nf_conntrack_max=65535" >> \/etc\/sysctl.d\/11-nf-conntrack-max.conf' package/emortal/default-settings/files/99-default-settings
@@ -32,3 +32,7 @@ chmod +x /tmp/clash >/dev/null 2>&1
 mkdir -p feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core
 mv /tmp/clash feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core/clash >/dev/null 2>&1
 rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
+
+# 固件版本名称自定义
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt-21.01'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION=' $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_release
