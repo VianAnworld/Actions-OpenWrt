@@ -21,19 +21,13 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 
-# 更新openclash
-rm -rf feeds/luci/applications/luci-app-openclash
-git clone -b master --depth=1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git feeds/luci/applications/luci-app-openclash
-git -C feeds/luci/applications/luci-app-openclash sparse-checkout set luci-app-openclash
-# 删除UI面板 仅保留Yacd
-rm -rf feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/usr/share/openclash/ui/dashboard
-rm -rf feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/usr/share/openclash/ui/metacubexd
-# 修改openclash名称
-#sed -i 's/msgstr "OpenClash"/msgstr "科学上网"/g' feeds/luci/applications/luci-app-openclash/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+
+# 删除dashboard面板 仅保留Yacd
+rm -rf feeds/luci/applications/luci-app-openclash/root/usr/share/openclash/ui/dashboard
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
 chmod +x /tmp/clash >/dev/null 2>&1
-mkdir -p feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core
-mv /tmp/clash feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core/clash >/dev/null 2>&1
+mkdir -p feeds/luci/applications/luci-app-openclash/root/etc/openclash/core
+mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash >/dev/null 2>&1
 rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
