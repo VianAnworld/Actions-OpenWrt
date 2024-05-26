@@ -19,8 +19,8 @@ wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg 
 
 # 更新openclash
 rm -rf feeds/luci/applications/luci-app-openclash
-git clone -b master --depth=1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git feeds/luci/applications/luci-app-openclash
-git -C feeds/luci/applications/luci-app-openclash sparse-checkout set luci-app-openclash
+git clone -b master --depth=1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git package/OpenClash
+git -C package/OpenClash sparse-checkout set luci-app-openclash
 # 添加 OpenClash dev 内核
-wget -qO- https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz | tar xOvz > feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core
-chmod +x feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core*
+wget -qO- https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz | tar xOvz > package/OpenClash/luci-app-openclash/root/etc/openclash/core
+chmod +x package/OpenClash/luci-app-openclash/root/etc/openclash/core*
