@@ -19,7 +19,3 @@ wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg 
 # 更新 golang
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
-# 更新 xray-core
-#rm -rf feeds/packages/net/xray-core
-sed -i 's/1.8.3/1.8.13/g' feeds/packages/net/xray-core/Makefile
-sed -i 's/bdfa65c15cd25f931745d9c70c753503db5d119ff11960ca7b3a2e19c4b0a8d1/9e63fbeb4667c19e286389c370d30e9e904f4421784adcbe6cf4d6e172a2ac29/g' feeds/packages/net/xray-core/Makefile
