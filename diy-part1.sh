@@ -1,2 +1,3 @@
 #!/bin/bash
-git clone --depth=1 https://github.com/fw876/helloworld.git packages/helloworld
+sed -i "/helloworld/d" "feeds.conf.default"
+echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
