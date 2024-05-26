@@ -19,37 +19,5 @@ wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg 
 # 更新 golang
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
-# 更新 ssrplus
-# rm -rf feeds/luci/applications/luci-app-microsocks
-# rm -rf feeds/luci/applications/luci-app-naiveproxy
-# rm -rf package/feeds/luci/luci-app-passwall
-# rm -rf package/feeds/luci/luci-app-ssr-libev-server
-# rm -rf package/feeds/luci/luci-app-trojan-server
-# rm -rf package/feeds/luci/luci-app-v2ray-server
-# rm -rf package/feeds/luci/luci-app-v2raya
-# rm -rf package/feeds/luci/luci-app-vssr
-# rm -rf feeds/packages/net/chinadns-ng
-# rm -rf feeds/packages/net/dns2socks
-# rm -rf feeds/packages/net/dns2tcp
-# rm -rf feeds/packages/devel/gn
-# rm -rf feeds/packages/net/hysteria
-# rm -rf feeds/packages/net/ipt2socks
-# rm -rf feeds/packages/lang/lua-neturl
-# rm -rf feeds/luci/applications/luci-app-ssr-plus
-# rm -rf feeds/packages/net/microsocks
-# rm -rf feeds/packages/net/mosdns
-# rm -rf feeds/packages/net/naiveproxy
-# rm -rf feeds/packages/net/redsocks2
-# rm -rf feeds/packages/net/shadowsocks-rust
-# rm -rf feeds/packages/net/shadowsocksr-libev
-# rm -rf feeds/packages/net/simple-obfs
-# rm -rf feeds/packages/net/tcping
-# rm -rf feeds/packages/net/trojan
-# rm -rf feeds/packages/net/tuic-client
-# rm -rf feeds/packages/net/v2ray-core
-# rm -rf feeds/packages/net/v2ray-plugin
-# rm -rf feeds/packages/net/v2raya
-# rm -rf feeds/packages/net/xray-core
-# rm -rf feeds/packages/net/xray-plugin
-# rm -rf feeds/packages/net/mosdns
-# git clone --depth=1 https://github.com/fw876/helloworld.git packages/helloworld
+# 更新 xray-core
+rm -rf feeds/packages/net/xray-core
