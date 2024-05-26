@@ -20,5 +20,10 @@ wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg 
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 更新 xray-core
-rm -rf feeds/packages/net/xray-core
-git clone --depth=1 https://github.com/XTLS/Xray-core.git feeds/packages/net/xray-core
+#rm -rf feeds/packages/net/xray-core
+#git clone --depth=1 https://github.com/XTLS/Xray-core.git feeds/packages/net/xray-core
+# 更新 dns2tcp
+rm -rf feeds/packages/net/dns2tcp
+git clone https://github.com/zfl9/dns2tcp
+cd dns2tcp
+make && sudo make install
