@@ -21,7 +21,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 
-
 # 删除dashboard面板 仅保留Yacd
 rm -rf feeds/luci/applications/luci-app-openclash/root/usr/share/openclash/ui/dashboard
 # 添加 OpenClash dev 内核
