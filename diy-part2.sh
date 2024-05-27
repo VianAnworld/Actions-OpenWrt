@@ -6,7 +6,6 @@ sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/
 # 固件版本名称自定义
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" package/base-files/files/etc/openwrt_release
 sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION='ImmortalWrt-21.02'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/DISTRIB_RELEASE=.*/DISTRIB_RELEASE='ImmortalWrt-21.02'/g" package/base-files/files/etc/openwrt_release
 # 内存释放阈值
 sed -i '/exit 0/i\echo "vm.min_free_kbytes=65536" > \/etc\/sysctl.d\/11-nf-conntrack-max.conf' package/emortal/default-settings/files/99-default-settings
 sed -i '/exit 0/i\echo "net.netfilter.nf_conntrack_max=65535" >> \/etc\/sysctl.d\/11-nf-conntrack-max.conf' package/emortal/default-settings/files/99-default-settings
