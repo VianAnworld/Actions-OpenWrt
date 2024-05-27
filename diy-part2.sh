@@ -23,6 +23,7 @@ wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg 
 
 # 删除dashboard面板 仅保留Yacd
 rm -rf feeds/luci/applications/luci-app-openclash/root/usr/share/openclash/ui/dashboard
+rm -rf feeds/luci/applications/luci-app-openclash/luasrc/view/openclash/switch_dashboard.htm
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
