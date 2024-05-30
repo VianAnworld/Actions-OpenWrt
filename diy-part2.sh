@@ -6,11 +6,10 @@ sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/
 # 固件版本名称自定义
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" ./package/base-files/files/etc/openwrt_release
 sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION='ImmortalWrt-21.02'/g" ./package/base-files/files/etc/openwrt_release
-# 内存释放阈值
-# sed -i '/exit 0/i\echo "vm.min_free_kbytes=65536" > \/etc\/sysctl.d\/11-nf-conntrack-max.conf' ./package/emortal/default-settings/files/99-default-settings
-# sed -i '/exit 0/i\echo "net.netfilter.nf_conntrack_max=65535" >> \/etc\/sysctl.d\/11-nf-conntrack-max.conf' ./package/emortal/default-settings/files/99-default-settings
-# 修改dns缓存为0
+# 设置dns缓存为0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
+# 禁止解析 IPv6 DNS 记录
+sed -i 's/option filter_aaaa	0/option filter_aaaa	1/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # 修改登录IP
 sed -i 's/192.168.6.1/192.168.1.1/g' ./package/base-files/files/bin/config_generate
 # 修改password
@@ -25,6 +24,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 
+
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
@@ -32,4 +32,3 @@ chmod +x /tmp/clash >/dev/null 2>&1
 mkdir -p feeds/luci/applications/luci-app-openclash/root/etc/openclash/core
 mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash >/dev/null 2>&1
 rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
-
