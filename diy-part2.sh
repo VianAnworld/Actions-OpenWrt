@@ -15,9 +15,6 @@ sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/m
 sed -i '/encryption=none/a\t\t\t\t\tset wireless.default_${dev}.key='@15859585276'' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 # sed -i '/encryption=none/a 					set wireless.default_${dev}.key='@15859585276'' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-# 删除bootstrap 替换默认主题为argon 并更换主题背景
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 # 设置dns缓存为0  option cachesize 0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁用lan ipv6
@@ -26,6 +23,9 @@ sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\t
 sed -i '23s/\b0\b/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
 sed -i '34d33d32d31d' /etc/config/network
+# 删除bootstrap 替换默认主题为argon 并更换主题背景
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
