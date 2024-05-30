@@ -17,11 +17,11 @@ sed -i '23s/\b0\b/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
 sed -i '20d' ./package/network/config/firewall/files/firewall.config
 # 禁用lan ipv6
-sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone' ./package/network/services/dnsmasq/files/dhcp.conf
+sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone\\' ./package/network/services/dnsmasq/files/dhcp.conf
 # 修改wifi
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-sed -i '/encryption=none/a\t\t\t\t\tset wireless.default_${dev}.key='@15859585276'' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i '/encryption=none/a\t\t\t\t\tset wireless.default_${dev}.key='@15859585276'\\' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 # sed -i '/encryption=none/a 					set wireless.default_${dev}.key='@15859585276'' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
