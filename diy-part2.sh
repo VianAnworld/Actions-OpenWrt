@@ -26,7 +26,7 @@ sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\t
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\b0\b/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
-sed -i '20d' etc/config/network
+sed -i '34d33d32d' etc/config/network
 
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
