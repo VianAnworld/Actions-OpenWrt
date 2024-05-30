@@ -9,8 +9,6 @@ sed -i 's/root::0/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856/g' ./package/bas
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" ./package/base-files/files/etc/openwrt_release
 # 修正CPU频率
 sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/emortal/autocore/files/generic/cpuinfo
-# 设置dns缓存为0  option cachesize 0
-sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # wifi设置
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
@@ -20,13 +18,15 @@ sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/m
 # 删除bootstrap 替换默认主题为argon 并更换主题背景
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
+# 设置dns缓存为0  option cachesize 0
+sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 
-# 删除WAN6
-sed -i '20d' ./package/network/config/firewall/files/firewall.config
 # 禁用lan ipv6
 sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\b0\b/1/' ./package/network/services/dnsmasq/files/dhcp.conf
+# 删除WAN6
+sed -i '20d' ./package/network/config/firewall/files/firewall.config
 
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
