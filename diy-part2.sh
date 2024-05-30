@@ -10,6 +10,7 @@ sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION='ImmortalWrt-21.02'/g" ./package/
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁止解析 IPv6 DNS 记录
 sed -i 's/aaaa	0/aaaa	1/g' ./package/network/services/dnsmasq/files/dhcp.conf
+sed -i 's/list   network		'wan6'/#/g' feeds/package/network/config/firewall/files/firewall.config
 # 修改登录IP
 sed -i 's/192.168.6.1/192.168.1.1/g' ./package/base-files/files/bin/config_generate
 # 修改password
