@@ -20,13 +20,13 @@ sed -i 's/root::0:0:99999:7:::/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856:0:9
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i 's/ImmortalWrt-5G/online/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i '/encryption=none/a\t\t\t\t\tset wireless.default_${dev}.key='@15859585276'' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone' ./package/network/services/dnsmasq/files/dhcp.conf
 # sed -i '/encryption=none/a 					set wireless.default_${dev}.key='@15859585276'' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 # 替换默认主题为argon 并删除bootstrap
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
-
 
 
 # 添加 OpenClash dev 内核
