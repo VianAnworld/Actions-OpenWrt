@@ -10,7 +10,7 @@ sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" ./
 sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION='ImmortalWrt-21.02'/g" ./package/base-files/files/etc/openwrt_release
 # 修正CPU频率
 sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/emortal/autocore/files/generic/cpuinfo
-# 设置dns缓存为0  option cachesize	0
+# 设置dns缓存为0  option cachesize 0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # wifi设置
 sed -i 's/ImmortalWrt-2.4G/SmartHome/g' ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
