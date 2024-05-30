@@ -6,9 +6,9 @@ sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/
 # 固件版本名称自定义
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" ./package/base-files/files/etc/openwrt_release
 sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION='ImmortalWrt-21.02'/g" ./package/base-files/files/etc/openwrt_release
-# 设置dns缓存为0
+# 设置dns缓存为0  option cachesize	0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
-# 禁止解析 IPv6 DNS 记录
+# 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\b0\b/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
 sed -i '20d' ./package/network/config/firewall/files/firewall.config
