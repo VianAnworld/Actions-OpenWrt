@@ -24,6 +24,14 @@ sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/m
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # 更换主题背景
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
+# 关闭ipv6:
+cat >> .config <<EOF
+CONFIG_KERNEL_IPV6=n
+CONFIG_KERNEL_IPV6_MULTIPLE_TABLES=n
+CONFIG_KERNEL_IPV6_SUBTREES=n
+CONFIG_KERNEL_IPV6_MROUTE=n
+CONFIG_IPV6=n
+EOF
 
 # 添加 OpenClash dev 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
