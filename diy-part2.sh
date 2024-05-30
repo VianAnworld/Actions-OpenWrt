@@ -23,6 +23,7 @@ sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\t
 sed -i '23s/\b0\b/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
 sed -i '34d33d32d31d' /etc/config/network
+
 # 删除bootstrap 替换默认主题为argon 并更换主题背景
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
