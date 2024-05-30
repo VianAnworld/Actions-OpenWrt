@@ -20,7 +20,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
 # 设置dns缓存为0  option cachesize 0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
-
 # 禁用lan ipv6
 sed -i '/option force\t1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
