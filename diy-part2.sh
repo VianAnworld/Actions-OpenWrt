@@ -17,7 +17,7 @@ sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/m
 # 设置dns缓存为0  option cachesize 0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁用lan ipv6
-sed -i '/option force\t1/a \option dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone' ./package/network/services/dnsmasq/files/dhcp.conf
+sed -i '/	option force	1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tlist ra_flags\tnone' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\<0\>/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
