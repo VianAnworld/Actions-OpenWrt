@@ -22,7 +22,10 @@ sed -i '/option force	1/a\toption dhcpv4\tserver\n\toption ra_management\t1\n\tl
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\<0\>/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
-sed -i '34d;33d;32d;31d' /etc/config/network
+cat << 'EOF' >> package/base-files/files/etc/uci-defaults/99-custom-settings
+uci delete network.wan6
+uci commit network
+EOF
 
 # 删除bootstrap 替换默认主题为argon 并更换主题背景
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
