@@ -6,7 +6,10 @@ sed -i 's/192.168.6.1/192.168.1.1/g' ./package/base-files/files/bin/config_gener
 # 修改password
 sed -i 's/root::0/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856/g' ./package/base-files/files/etc/shadow
 # 固件版本名称自定义
-sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" ./package/base-files/files/etc/openwrt_release
+#sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION=' $(date +"%Y%m%d") '/g" ./package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt-21.02'/g" ./package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_REVISION=.*/DISTRIB_REVISION=' $(date +"%Y%m%d") '/g" ./package/base-files/files/etc/openwrt_release
+sed -i "s/PKG_RELEASE?=1/PKG_RELEASE:=' $(date +"%Y%m%d") '/" feeds/luci/luci.mk
 # 修正CPU频率
 sed -i '/"mediatek"\/\*|\"mvebu"\/\*/{n; s/.*/\tcpu_freq="2.0GHz" ;;/}' package/emortal/autocore/files/generic/cpuinfo
 # wifi设置
