@@ -16,8 +16,6 @@ sed -i '/encryption=none/a					set wireless.default_${dev}.key='@15859585276'' .
 sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 # 设置dns缓存为0  option cachesize 0
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
-# 禁用lan ipv6
-sed -i '/option force	1/a\	option dhcpv4	server\	option ra_management	1\	list ra_flags	none' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\<0\>/1/' ./package/network/services/dnsmasq/files/dhcp.conf
 # 删除WAN6
