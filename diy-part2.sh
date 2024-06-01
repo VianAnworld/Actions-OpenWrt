@@ -23,7 +23,9 @@ cat << 'EOF' >> package/base-files/files/etc/uci-defaults/99-custom-settings
 uci delete network.wan6
 uci commit network
 EOF
-
+# 删除ddns示例
+sed -i '/myddns_ipv4/,$d' feeds/packages/net/ddns-scripts/files/etc/config/ddns
+sed -i '/myddns_ipv6/,$d' feeds/packages/net/ddns-scripts/files/etc/config/ddns
 # 删除bootstrap 替换默认主题为argon 并更换主题背景
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
