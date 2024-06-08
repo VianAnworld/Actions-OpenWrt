@@ -2,7 +2,7 @@
 # 主机名=OpenWrt
 sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" ./package/base-files/files/bin/config_generate
 # 登录IP=192.168.1.1
-# sed -i 's/192.168.6.1/192.168.1.1/g' ./package/base-files/files/bin/config_generate
+sed -i 's/192.168.6.1/192.168.1.1/g' ./package/base-files/files/bin/config_generate
 # 修改password
 sed -i 's/root::0/root:$1$mCAXgXUF$6bgDhPFZRbF.2w0zCTQw00:19856/g' ./package/base-files/files/etc/shadow
 # 固件版本名称自定义
