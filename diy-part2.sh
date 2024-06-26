@@ -18,11 +18,6 @@ sed -i "s/encryption=none/encryption='sae-mixed'/g" ./package/mtk/applications/m
 sed -i 's/8000/0/g' ./package/network/services/dnsmasq/files/dhcp.conf
 # 禁止解析 IPv6 DNS 记录 filter_aaaa	1
 sed -i '23s/\<0\>/1/' ./package/network/services/dnsmasq/files/dhcp.conf
-# 删除WAN6
-cat << 'EOF' >> package/base-files/files/etc/uci-defaults/99-custom-settings
-uci delete network.wan6
-uci commit network
-EOF
 # 删除ddns示例
 sed -i '/myddns_ipv4/,$d' feeds/packages/net/ddns-scripts/files/etc/config/ddns
 # 删除bootstrap 替换默认主题为argon 并更换主题背景
