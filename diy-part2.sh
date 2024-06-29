@@ -21,24 +21,26 @@ sed -i '/myddns_ipv4/,$d' feeds/packages/net/ddns-scripts/files/etc/config/ddns
 # 删除bootstrap 替换默认主题为argon 并更换主题背景
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/VianAnworld/Actions-OpenWrt/main/1.jpg
+
+
 # 更新 golang
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 
- # 更新openclash
+# 更新openclash
 rm -rf feeds/luci/applications/luci-app-openclash
- mkdir package/luci-app-openclash
- cd package/luci-app-openclash
- git init
- git remote add -f origin https://github.com/vernesong/OpenClash.git
- git config core.sparsecheckout true
- echo "luci-app-openclash" >> .git/info/sparse-checkout
- git pull --depth 1 origin master
- git branch --set-upstream-to=origin/master master
- # 编译 po2lmo (如果有po2lmo可跳过)
- pushd luci-app-openclash/tools/po2lmo
- make && sudo make install
- popd
+mkdir package/luci-app-openclash
+cd package/luci-app-openclash
+git init
+git remote add -f origin https://github.com/vernesong/OpenClash.git
+git config core.sparsecheckout true
+echo "luci-app-openclash" >> .git/info/sparse-checkout
+git pull --depth 1 origin master
+git branch --set-upstream-to=origin/master master
+# 编译 po2lmo (如果有po2lmo可跳过)
+pushd luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
 
 
 # 添加 OpenClash Meta 内核
