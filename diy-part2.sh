@@ -28,7 +28,7 @@ rm -rf feeds/packages/lang/golang
 git clone --depth=1 -b 21.x  https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # 更新openclash
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+git_sparse_clone --depth=1 master https://github.com/vernesong/OpenClash luci-app-openclash
 
 # 添加 OpenClash Meta 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz -o /tmp/clash-meta.tar.gz
