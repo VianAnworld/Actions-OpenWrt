@@ -24,8 +24,8 @@ wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg 
 
 
 # 更新 golang
-#rm -rf feeds/packages/lang/golang
-#git clone --depth=1 -b 21.x  https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+rm -rf feeds/packages/lang/golang
+git clone --depth=1 -b 21.x  https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # 更新openclash
 rm -rf feeds/luci/applications/luci-app-openclash
