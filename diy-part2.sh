@@ -30,7 +30,7 @@ git clone --depth=1 -b 21.x  https://github.com/sbwml/packages_lang_golang feeds
 # 更新openclash
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone -b master --depth=1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git feeds/luci/applications/luci-app-openclash
-git -C package/luci-app-openclash sparse-checkout set luci-app-openclash
+git -C feeds/luci/applications/luci-app-openclash sparse-checkout set luci-app-openclash
 
 # 添加 OpenClash Meta 内核
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz -o /tmp/clash-meta.tar.gz
