@@ -33,9 +33,9 @@ git clone -b master --depth=1 --filter=blob:none --sparse https://github.com/ver
 git -C feeds/luci/applications/luci-app-openclash sparse-checkout set luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-openclash/luci-app-openclash/tools
 # 添加 OpenClash Meta 内核
-#curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz -o /tmp/clash-meta.tar.gz
-#tar zxvf /tmp/clash-meta.tar.gz -C /tmp >/dev/null 2>&1
-#chmod +x /tmp/clash >/dev/null 2>&1
-#mkdir -p feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core
-#mv /tmp/clash feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core/clash_meta >/dev/null 2>&1
-#rm -rf /tmp/clash-meta.tar.gz >/dev/null 2>&1
+curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz -o /tmp/clash-meta.tar.gz
+tar zxvf /tmp/clash-meta.tar.gz -C /tmp >/dev/null 2>&1
+chmod +x /tmp/clash >/dev/null 2>&1
+mkdir -p feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core
+mv /tmp/clash feeds/luci/applications/luci-app-openclash/luci-app-openclash/root/etc/openclash/core/clash_meta >/dev/null 2>&1
+rm -rf /tmp/clash-meta.tar.gz >/dev/null 2>&1
