@@ -1,0 +1,47 @@
+name: 更新检查
+
+env:
+  REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-24.10
+  REPO_BRANCH: openwrt-24.10-6.6
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 18 */3 * *
+
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+
+    steps:
+
+    - name: 获取上游最新哈希值
+      id: getHash
+      run: |
+        git clone --depth 1 $REPO_URL -b $REPO_BRANCH .
+        echo "commitHash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+    - name: 比较当前哈希值
+      id: cacheHash
+      uses: actions/cache@v4
+      with:
+        path: .commitHash
+        key: commitHash_${{ steps.getHash.outputs.commitHash }}
+
+    - name: 保存最新哈希值
+      if: steps.cacheHash.outputs.cache-hit != 'true'
+      run: |
+        echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
+
+    - name: 触发构建
+      if: steps.cacheHash.outputs.cache-hit != 'true'
+      uses: peter-evans/repository-dispatch@v3
+      with:
+        token: ${{ github.token }}
+        event-type: 固件编译（自动更新）
+
+    - name: 删除工作流
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        retain_days: 0
+        keep_minimum_runs: 1
